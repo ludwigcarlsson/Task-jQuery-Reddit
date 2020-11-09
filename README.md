@@ -8,4 +8,4 @@ Clone the repository, then in VS Code rightclick the code and "Open with Live Se
 
 ### Authors
 
-[Ludwig Carlsson](https://github.com/ludwigcarlsson) and Jesper Englund
+[Ludwig Carlsson](https://github.com/ludwigcarlsson) and [Jesper Englund](https://github.com/englundjesper)
