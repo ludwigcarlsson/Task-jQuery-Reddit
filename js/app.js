@@ -18,7 +18,7 @@ $(document).ready(function() {
                     <div class="post-title"><a href="https://www.reddit.com${item.data.permalink}">${item.data.title}</a></div>
                 </div>
             `
-            $posts.append(post);
+            $posts.append(post); // add each post to container
         });
     });
 
