@@ -12,11 +12,11 @@ $(document).ready(function() {
             console.log('error: ', error);
         }
     }).done(function (data) {
-        $(data.data.children).each(function(index, item) {
+        $(data.data.children).each(function(index, item) { // loops through each entry recieved from request
         
             const postBody = $('<div class="post-body"></div>').click(function() {
                 window.location.href = "https://www.reddit.com"+item.data.permalink;
-            });
+            }); // create a post-body that redirects on click
 
             const info = $('<div class="post-info"></div>')
             
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
             info.append(title, author, upvotes);
 
-            const img = $('<img alt="image" style="height:200px; width:250px;">');
+            const img = $('<img alt="image">');
             img.attr('src', item.data.url);
 
             postBody.append(img, info);
@@ -34,7 +34,7 @@ $(document).ready(function() {
             $posts.append(postBody); // add each post to container
         });
 
-        $('div div').mouseover(function() {
+        $('div div').mouseover(function() { // animation (hover-effect on cards)
             $(this).stop().animate({
                 opacity: '0.6'
             }, 500);
