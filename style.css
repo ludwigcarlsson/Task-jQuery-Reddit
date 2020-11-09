@@ -20,6 +20,10 @@ body {
     grid-template-columns: 260px auto;
     height: 200px;
 }
+img {
+    height:200px; 
+    width:250px;
+}
 .post-info p:first-child {
     text-align: left;
     font-size: 32px;
