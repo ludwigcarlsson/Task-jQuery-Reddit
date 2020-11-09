@@ -13,13 +13,36 @@ $(document).ready(function() {
         }
     }).done(function (data) {
         $(data.data.children).each(function(index, item) {
-            const post = `
-                <div class="post-body">
-                    <div class="post-title"><a href="https://www.reddit.com${item.data.permalink}">${item.data.title}</a></div>
-                </div>
-            `
-            $posts.append(post); // add each post to container
+        
+            const postBody = $('<div class="post-body"></div>').click(function() {
+                window.location.href = "https://www.reddit.com"+item.data.permalink;
+            });
+
+            const info = $('<div class="post-info"></div>')
+            
+            const title = $('<p></p>').text(item.data.title); 
+            const author = $('<p></p>').text("Author: "+item.data.author); 
+            const upvotes = $('<p></p>').text("Upvotes: "+item.data.ups); 
+
+            info.append(title, author, upvotes);
+
+            const img = $('<img alt="image" style="height:200px; width:250px;">');
+            img.attr('src', item.data.url);
+
+            postBody.append(img, info);
+
+            $posts.append(postBody); // add each post to container
+        });
+
+        $('div div').mouseover(function() {
+            $(this).stop().animate({
+                opacity: '0.6'
+            }, 500);
+        });
+        $('div div').mouseout(function() {
+            $(this).stop().animate({
+                opacity: '1'
+            }, 500);
         });
     });
-
 });
